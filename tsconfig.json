@@ -4,6 +4,7 @@
       "noImplicitAny": true,
       "module": "ESNext",
       "target": "es5",
+      "lib": ["es2017", "dom"],
       "jsx": "react-jsx",
       "allowJs": true,
       "moduleResolution": "node",
@@ -17,7 +18,7 @@
     },
     "ts-node": {
         "compilerOptions": {
-          "module": "CommonJS"
+          "module": "CommonJS",
         }
     }
   }
