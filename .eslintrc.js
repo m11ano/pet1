@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
@@ -20,6 +21,7 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
+        'max-len': [1, { code: 150 }],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
