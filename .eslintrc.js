@@ -21,7 +21,7 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
-        'max-len': [1, { code: 150 }],
+        'max-len': [1, { code: 150, ignoreComments: true }],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
