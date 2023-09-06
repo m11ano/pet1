@@ -7,7 +7,7 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb',
-        // 'plugin:i18next/recommended',
+        'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -42,10 +42,18 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'warn',
         'no-return-await': 'warn',
-        'i18next/no-literal-string': ['warn', { markupOnly: true }],
+        'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
         'react/jsx-one-expression-per-line': 'off',
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'error',
+            },
+        },
+    ],
 };
