@@ -8,6 +8,7 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -44,6 +45,7 @@ module.exports = {
         'no-return-await': 'warn',
         'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
         'react/jsx-one-expression-per-line': 'off',
+        'no-param-reassign': 'warn',
     },
     globals: {
         __IS_DEV__: true,
@@ -52,7 +54,7 @@ module.exports = {
         {
             files: ['**/src/**/*.test.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'error',
+                'i18next/no-literal-string': 'off',
             },
         },
     ],
