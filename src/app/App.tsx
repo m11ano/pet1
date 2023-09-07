@@ -2,7 +2,7 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { AppRouter } from './providers/router';
 
 const App = () => {
@@ -10,8 +10,12 @@ const App = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+    }, [theme]);
+
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {})}>
             <Suspense fallback="">
                 <Navbar />
                 <div className="content-page">
