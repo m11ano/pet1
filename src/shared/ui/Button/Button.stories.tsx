@@ -8,7 +8,7 @@ const meta = {
     title: 'shared/Button',
     component: Button,
     argTypes: {
-        // backgroundColor: { control: 'color' },
+        theme: { control: 'text' },
     },
 } satisfies Meta<typeof Button>;
 
@@ -26,6 +26,13 @@ export const Clear: Story = {
     args: {
         children: 'Text',
         theme: ButtonTheme.CLEAR,
+    },
+};
+
+export const ClearInverted: Story = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR_INVERTED,
     },
 };
 
