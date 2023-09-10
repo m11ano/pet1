@@ -10,6 +10,7 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -20,15 +21,33 @@ export const Modal: FC<ModalProps> = (props) => {
         children,
         isOpen,
         onClose,
+        lazy = false,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const [isMounted, setIsMounted] = useState(false);
+    const [isOpenClass, setIsOpenClass] = useState(false);
+    const timerRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+            timerRef.current.isOpenClass = setTimeout(() => {
+                setIsOpenClass(true);
+            }, 0);
+        } else {
+            setIsOpenClass(false);
+        }
+
+        return () => {
+            setIsMounted(false);
+        };
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
-            timerRef.current = setTimeout(() => {
+            timerRef.current.closeAnimation = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
             }, ANIMATION_DELAY);
@@ -50,16 +69,23 @@ export const Modal: FC<ModalProps> = (props) => {
             window.addEventListener('keydown', onKeyDown);
         }
 
+        const timers = timerRef.current;
         return () => {
-            clearTimeout(timerRef.current);
+            Object.keys(timers).forEach((key) => {
+                clearTimeout(timers[key]);
+            });
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpenClass,
         [cls.isClosing]: isClosing,
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
