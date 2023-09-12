@@ -26,7 +26,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rej
 
             return response.data;
         } catch (e) {
-            console.log(e);
+            console.log(e.message);
             return thunkApi.rejectWithValue('incorrect_login');
         }
     },
