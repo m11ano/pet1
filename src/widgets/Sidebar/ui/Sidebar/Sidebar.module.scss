@@ -33,24 +33,6 @@
 }
 
 
-.item {
-    margin-top:10px;
-    display: flex;
-    align-items: center;
-}
-
-.link {
-    opacity: 1;
-    margin-left:10px;
-    height:24px;
-    overflow: hidden;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
-    flex-shrink: 0;
-}
-
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
@@ -62,10 +44,5 @@
 
     .lang {
         margin-left: 0;
-    }
-
-    .link {
-        opacity: 0;
-        transition: opacity 0.3s;
     }
 }
