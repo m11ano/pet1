@@ -1,7 +1,7 @@
 import React, {
     FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -24,9 +24,9 @@ export const Modal: FC<ModalProps> = (props) => {
         lazy = false,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const [isOpenClass, setIsOpenClass] = useState(false);
+    const [isClosing, setIsClosing] = useState<boolean>(false);
+    const [isMounted, setIsMounted] = useState<boolean>(false);
+    const [isOpenClass, setIsOpenClass] = useState<boolean>(false);
     const timerRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
     useEffect(() => {
@@ -78,7 +78,7 @@ export const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpenClass,
         [cls.isClosing]: isClosing,
     };

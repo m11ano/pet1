@@ -19,8 +19,6 @@ export const Sidebar = memo((props: SidebarProps) => {
 
     const { t } = useTranslation();
 
-    const [test, setTest] = useState(0);
-
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
     const onToggle = () => {
@@ -43,7 +41,6 @@ export const Sidebar = memo((props: SidebarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={cls.items}>
-                <button type="button" onClick={() => setTest((v) => v + 1)}>Test</button>
                 {SidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
