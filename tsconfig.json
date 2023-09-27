@@ -25,5 +25,8 @@
     "include": [
         "src/**/*",
         "./config/jest/setupTests.ts"
+    ],
+    "exclude": [
+        ".fttemplates"
     ]
   }
