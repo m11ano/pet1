@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'm1l',
     ],
     rules: {
         'max-len': [1, { code: 150, ignoreComments: true }],
@@ -52,6 +53,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-undef': 'off',
+        'm1l/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: 'readonly',

@@ -7,10 +7,12 @@ import { LoginSchema } from 'features/AuthByUserName';
 import { ProfileSchema } from 'entities/Profile/model/types/profile';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router-dom';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema

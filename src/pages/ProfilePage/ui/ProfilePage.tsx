@@ -13,21 +13,30 @@ import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { getUserAuthData } from 'entities/User';
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
-const ProfilePage: FC<ProfilePageProps> = (props) => {
+const ProfilePage = (props: ProfilePageProps) => {
     const {
         className,
     } = props;
 
     const dispatch = useAppDispatch();
+
+    const authUser = useSelector(getUserAuthData);
+    
+    if (!authUser)
+    {
+        return null;
+    }
+
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
@@ -45,7 +54,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+            dispatch(fetchProfileData(authUser.id));
         }
     }, [dispatch]);
 

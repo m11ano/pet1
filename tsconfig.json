@@ -13,6 +13,7 @@
       "paths": {
         "*" : ["./src/*"]
       },
+      "isolatedModules": true,
       //
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,

@@ -23,8 +23,16 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
     decorators: [
         StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    username: 'Test',
+                },
+            },
             profile: {
+                readonly: true,
                 form: {
+                    id: '1',
                     username: 'admin',
                     age: 22,
                     country: Country.Kazahstan,
@@ -42,8 +50,16 @@ export const Light: Story = {
 export const Dark: Story = {
     decorators: [
         StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    username: 'Test',
+                },
+            },
             profile: {
+                readonly: true,
                 form: {
+                    id: '1',
                     username: 'admin',
                     age: 22,
                     country: Country.Kazahstan,
@@ -56,5 +72,33 @@ export const Dark: Story = {
             },
         }),
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+
+export const Editing: Story = {
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    username: 'Test',
+                },
+            },
+            profile: {
+                readonly: false,
+                form: {
+                    id: '1',
+                    username: 'admin',
+                    age: 22,
+                    country: Country.Kazahstan,
+                    lastname: 'test',
+                    first: 'kirill',
+                    city: 'testcity',
+                    currency: Currency.EUR,
+                    avatar: AvatarImg,
+                },
+            },
+        }),
     ],
 };

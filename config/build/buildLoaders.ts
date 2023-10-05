@@ -9,13 +9,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const babelLoader = buildBabelLoader(options.isDev);
+    const codeBabelLoader = buildBabelLoader({...options, isTsx: false});
+    const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true});
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     const cssLoader = buildCssLoader(options.isDev);
 
@@ -31,8 +32,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        //typescriptLoader,
         cssLoader,
     ];
 }

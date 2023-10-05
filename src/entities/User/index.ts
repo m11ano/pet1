@@ -5,7 +5,7 @@ import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthDa
 export {
     userReducer,
     userActions,
-    User,
-    UserSchema,
+    type User,
+    type UserSchema,
     getUserAuthData,
 };

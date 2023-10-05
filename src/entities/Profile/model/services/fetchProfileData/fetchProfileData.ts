@@ -4,9 +4,9 @@ import { Profile } from '../../types/profile';
 
 type fetchProfileDataRejectValue = string;
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<fetchProfileDataRejectValue>>(
+export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<fetchProfileDataRejectValue>>(
     'profile/fetchProfileData',
-    async (authData, thunkApi) => {
+    async (profileId, thunkApi) => {
         const {
             dispatch,
             extra,
@@ -14,7 +14,7 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<fetc
         } = thunkApi;
 
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
             if (!response.data) {
                 throw new Error();

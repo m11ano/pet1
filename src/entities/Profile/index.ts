@@ -1,8 +1,11 @@
 export {
-    Profile,
-    ProfileSchema,
-    ValidateProfileError,
+    type Profile,
+    type ProfileSchema,
 } from './model/types/profile';
+
+export {
+    ValidateProfileError,
+} from './model/consts/consts';
 
 export {
     profileActions,
