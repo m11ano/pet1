@@ -13,9 +13,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push('.ts', '.tsx');
-    
+
     if (config.resolve?.alias) {
-        config.resolve.alias['entities'] = '/src/entities/';
+        config.resolve.alias.entities = '/src/entities/';
     }
 
     if (config.module?.rules) {

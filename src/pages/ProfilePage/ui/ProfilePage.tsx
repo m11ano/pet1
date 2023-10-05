@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
@@ -11,9 +11,9 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { getUserAuthData } from 'entities/User';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -31,11 +31,6 @@ const ProfilePage = (props: ProfilePageProps) => {
     const dispatch = useAppDispatch();
 
     const authUser = useSelector(getUserAuthData);
-    
-    if (!authUser)
-    {
-        return null;
-    }
 
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -53,10 +48,10 @@ const ProfilePage = (props: ProfilePageProps) => {
     };
 
     useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
+        if (__PROJECT__ !== 'storybook' && authUser) {
             dispatch(fetchProfileData(authUser.id));
         }
-    }, [dispatch]);
+    }, [dispatch, authUser]);
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));

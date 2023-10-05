@@ -4,7 +4,7 @@ import path from 'path';
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from 'jest';
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -35,7 +35,7 @@ const config: Config = {
     ],
     rootDir: '../../',
     roots: [
-        '<rootDir>/src/'
+        '<rootDir>/src/',
     ],
     testMatch: [
         '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
@@ -48,7 +48,7 @@ const config: Config = {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^axios$': require.resolve('axios'),
-        "^entities/(.*)": "<rootDir>/src/entities/$1",
+        '^entities/(.*)': '<rootDir>/src/entities/$1',
     },
     globals: {
         __IS_DEV__: true,

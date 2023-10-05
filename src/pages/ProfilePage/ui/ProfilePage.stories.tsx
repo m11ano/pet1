@@ -75,7 +75,6 @@ export const Dark: Story = {
     ],
 };
 
-
 export const Editing: Story = {
     decorators: [
         StoreDecorator({

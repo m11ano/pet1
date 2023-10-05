@@ -43,7 +43,7 @@ export function buildPlugins({
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new CircularDependencyPlugin({
             exclude: /node_modules/,
-            failOnError: true
+            failOnError: true,
         }));
     }
 

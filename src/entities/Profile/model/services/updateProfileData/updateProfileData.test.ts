@@ -4,7 +4,6 @@ import { Currency } from 'entities/Currency';
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileError } from '../../consts/consts';
 
-
 const data = {
     id: '1',
     username: 'admin',
