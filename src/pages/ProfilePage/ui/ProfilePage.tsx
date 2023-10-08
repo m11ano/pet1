@@ -1,17 +1,17 @@
 import { useCallback, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {
-    ProfileCard, ValidateProfileError, fetchProfileData, getProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer,
-} from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { getUserAuthData } from 'entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    ProfileCard, ValidateProfileError, fetchProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer,
+} from '@/entities/Profile';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { Text } from '@/shared/ui/Text/Text';
+import { getUserAuthData } from '@/entities/User';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 

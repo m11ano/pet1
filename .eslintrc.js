@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'unused-imports',
         // 'm1l',
     ],
     rules: {
@@ -54,6 +55,13 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-undef': 'off',
         // 'm1l/path-checker': 'error',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {
+                vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_',
+            },
+        ],
     },
     globals: {
         __IS_DEV__: 'readonly',

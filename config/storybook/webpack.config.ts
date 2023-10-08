@@ -16,8 +16,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     if (config.resolve?.alias) {
         // @ts-ignore
-        config.resolve.alias.entities = '/src/entities/';
+        // config.resolve.alias.entities = '/src/entities/';
     }
+
+    config.resolve!.alias = {
+        ...config.resolve!.alias,
+        '@': paths.src,
+    };
 
     if (config.module?.rules) {
         config.module.rules = config.module?.rules?.map((rule: webpack.RuleSetRule | any) => {
