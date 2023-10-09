@@ -16,8 +16,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
         StoreDecorator({
             loginForm: {
@@ -29,8 +28,7 @@ export const Default: Story = {
 };
 
 export const withError: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
         StoreDecorator({
             loginForm: {
@@ -43,8 +41,7 @@ export const withError: Story = {
 };
 
 export const Loading: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
         StoreDecorator({
             loginForm: {

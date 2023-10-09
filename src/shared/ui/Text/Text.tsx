@@ -15,13 +15,7 @@ interface TextProps {
 }
 
 export const Text: FC<TextProps> = (props) => {
-    const {
-        className,
-        title,
-        text,
-        theme = 'primary',
-        align = 'left',
-    } = props;
+    const { className, title, text, theme = 'primary', align = 'left' } = props;
 
     return (
         <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align]])}>

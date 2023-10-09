@@ -33,9 +33,14 @@ describe('profileSlice.test.ts', () => {
 
     test('test update profile', () => {
         const state: DeepPartial<ProfileSchema> = { form: { username: '' } };
-        expect(profileReducer(state as ProfileSchema, profileActions.updateProfile({
-            username: '123456',
-        }))).toEqual({
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile({
+                    username: '123456',
+                }),
+            ),
+        ).toEqual({
             form: { username: '123456' },
         });
     });

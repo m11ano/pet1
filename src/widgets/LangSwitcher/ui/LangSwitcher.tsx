@@ -6,15 +6,12 @@ import cls from './LangSwitcher.module.scss';
 import { ButtonTheme } from '../../../shared/ui/Button/Button';
 
 interface LangSwitcherProps {
-    className?: string,
-    short?: boolean,
+    className?: string;
+    short?: boolean;
 }
 
-export const LangSwitcher = memo((props : LangSwitcherProps) => {
-    const {
-        className,
-        short = false,
-    } = props;
+export const LangSwitcher = memo((props: LangSwitcherProps) => {
+    const { className, short = false } = props;
 
     const { t, i18n } = useTranslation();
 
@@ -23,11 +20,7 @@ export const LangSwitcher = memo((props : LangSwitcherProps) => {
     };
 
     return (
-        <Button
-            className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ButtonTheme.CLEAR}
-            onClick={toggle}
-        >
+        <Button className={classNames(cls.LangSwitcher, {}, [className])} theme={ButtonTheme.CLEAR} onClick={toggle}>
             {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
     );

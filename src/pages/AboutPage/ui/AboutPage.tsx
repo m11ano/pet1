@@ -23,11 +23,7 @@ const AboutPage = () => {
 
     // console.log(isLoading, data);
 
-    return (
-        <div>
-            {t('О сайте')}
-        </div>
-    );
+    return <div>{t('О сайте')}</div>;
 };
 
 export default AboutPage;

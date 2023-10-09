@@ -1,9 +1,15 @@
 {
     "extends": "stylelint-config-standard-scss",
+    "plugins": ["stylelint-prettier"],
     "rules": {
         "indentation": [4],
         "selector-class-pattern": null,
         "block-no-empty": null,
-        "declaration-block-no-redundant-longhand-properties": null
+        "declaration-block-no-redundant-longhand-properties": null,
+        "no-invalid-position-at-import-rule": null,
+        "at-rule-no-unknown": null,
+        "color-no-invalid-hex": null,
+        "no-descending-specificity": null,
+        "selector-id-pattern": null
     }
 }

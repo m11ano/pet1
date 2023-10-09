@@ -19,36 +19,19 @@ const config: Config = {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
-    moduleDirectories: [
-        'node_modules',
-    ],
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+    moduleDirectories: ['node_modules'],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     rootDir: '../../',
-    roots: [
-        '<rootDir>/src/',
-    ],
-    testMatch: [
-        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
-    modulePaths: [
-        '<rootDir>/src/',
-    ],
+    roots: ['<rootDir>/src/'],
+    testMatch: ['<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'],
+    modulePaths: ['<rootDir>/src/'],
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^axios$': require.resolve('axios'),
-        '^entities/(.*)': '<rootDir>/src/entities/$1',
+        '^@/(.*)': '<rootDir>/src/$1',
     },
     globals: {
         __IS_DEV__: true,
@@ -189,10 +172,7 @@ const config: Config = {
     // ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-        '\\\\.fttemplates\\\\',
-    ],
+    testPathIgnorePatterns: ['\\\\node_modules\\\\', '\\\\.fttemplates\\\\'],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
     // testRegex: [],

@@ -12,11 +12,8 @@ interface SidebarItemProps {
     collapsed: boolean;
 }
 
-export const SidebarItem = memo((props : SidebarItemProps) => {
-    const {
-        item,
-        collapsed,
-    } = props;
+export const SidebarItem = memo((props: SidebarItemProps) => {
+    const { item, collapsed } = props;
 
     const { t } = useTranslation();
 
@@ -27,11 +24,7 @@ export const SidebarItem = memo((props : SidebarItemProps) => {
     }
 
     return (
-        <AppLink
-            theme={AppLinkTheme.SECONDARY}
-            to={item.path}
-            className={classNames(cls.item, { [cls.collapsed]: collapsed })}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={item.path} className={classNames(cls.item, { [cls.collapsed]: collapsed })}>
             <item.Icon className={cls.icon} />
             <span className={cls.link}>{t(item.text)}</span>
         </AppLink>

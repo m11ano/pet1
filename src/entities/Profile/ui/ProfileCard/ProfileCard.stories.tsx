@@ -47,9 +47,7 @@ export const Dark: Story = {
             avatar: AvatarImg,
         },
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const WithError: Story = {

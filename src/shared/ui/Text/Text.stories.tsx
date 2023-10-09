@@ -48,25 +48,19 @@ export const DefaultDark: Story = {
         title: 'Title',
         text: 'Text',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyTitleDark: Story = {
     args: {
         title: 'Title',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyTextDark: Story = {
     args: {
         text: 'Text',
     },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

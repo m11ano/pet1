@@ -5,13 +5,11 @@ import { Button } from '@/shared/ui/Button/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
-    className?: string
+    className?: string;
 }
 
 export const PageError: FC<PageErrorProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
 
@@ -22,9 +20,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             <p>{t('Произошла непредвиденная ошибка')}</p>
-            <Button onClick={reloadPage}>
-                {t('Обновить страницу')}
-            </Button>
+            <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
         </div>
     );
 };

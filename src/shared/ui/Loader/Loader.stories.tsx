@@ -10,8 +10,7 @@ const meta = {
     argTypes: {
         // backgroundColor: { control: 'color' },
     },
-    args: {
-    },
+    args: {},
 } satisfies Meta<typeof Loader>;
 
 export default meta;
@@ -19,14 +18,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-    },
+    args: {},
 };
 
 export const DefaultDark: Story = {
-    args: {
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
+    args: {},
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

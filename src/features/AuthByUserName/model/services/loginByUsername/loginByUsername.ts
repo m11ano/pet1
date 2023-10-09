@@ -13,11 +13,7 @@ type LoginByUsernameRejectValue = 'incorrect_login';
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<LoginByUsernameRejectValue>>(
     'login/loginByUsername',
     async (authData, thunkApi) => {
-        const {
-            dispatch,
-            extra,
-            rejectWithValue,
-        } = thunkApi;
+        const { dispatch, extra, rejectWithValue } = thunkApi;
 
         try {
             const response = await extra.api.post<User>('/login', authData);

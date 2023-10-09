@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, memo, useMemo,
-} from 'react';
+import { ChangeEvent, memo, useMemo } from 'react';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
@@ -10,7 +8,7 @@ interface SelectOption {
 }
 
 interface SelectProps {
-    className?: string
+    className?: string;
     label?: string;
     options?: SelectOption[];
     value?: string;
@@ -19,24 +17,17 @@ interface SelectProps {
 }
 
 export const Select = memo((props: SelectProps) => {
-    const {
-        className,
-        label,
-        options = [],
-        value,
-        readonly = false,
-        onChange,
-    } = props;
+    const { className, label, options = [], value, readonly = false, onChange } = props;
 
-    const optionsList = useMemo(() => options?.map((opt) => (
-        <option
-            className={cls.option}
-            value={opt.value}
-            key={opt.value}
-        >
-            {opt.content}
-        </option>
-    )), [options]);
+    const optionsList = useMemo(
+        () =>
+            options?.map((opt) => (
+                <option className={cls.option} value={opt.value} key={opt.value}>
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value);
@@ -48,15 +39,8 @@ export const Select = memo((props: SelectProps) => {
 
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
-            {label && (
-                <span className={cls.label}>{`${label}>`}</span>
-            )}
-            <select
-                disabled={readonly}
-                className={cls.select}
-                value={value}
-                onChange={onChangeHandler}
-            >
+            {label && <span className={cls.label}>{`${label}>`}</span>}
+            <select disabled={readonly} className={cls.select} value={value} onChange={onChangeHandler}>
                 {optionsList}
             </select>
         </div>

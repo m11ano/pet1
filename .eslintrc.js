@@ -9,6 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -27,12 +28,12 @@ module.exports = {
         // 'm1l',
     ],
     rules: {
-        'max-len': [1, { code: 150, ignoreComments: true }],
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        // 'max-len': [1, { code: 180, ignoreComments: true }],
         '@typescript-eslint/indent': [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -46,7 +47,10 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'react/button-has-type': 'warn',
         'no-return-await': 'warn',
-        'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
+        'i18next/no-literal-string': [
+            'warn',
+            { markupOnly: true, ignoreAttribute: ['data-testid'] },
+        ],
         'react/jsx-one-expression-per-line': 'off',
         'no-param-reassign': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
@@ -59,9 +63,13 @@ module.exports = {
         'unused-imports/no-unused-vars': [
             'warn',
             {
-                vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_',
+                vars: 'all',
+                varsIgnorePattern: '^_',
+                args: 'after-used',
+                argsIgnorePattern: '^_',
             },
         ],
+        // 'react/jsx-max-props-per-line': ['error', { maximum: 7 }],
     },
     globals: {
         __IS_DEV__: 'readonly',
