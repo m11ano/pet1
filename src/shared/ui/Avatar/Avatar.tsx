@@ -22,5 +22,12 @@ export const Avatar = memo((props: AvatarProps) => {
         [size],
     );
 
-    return <img src={src} style={styles} className={classNames(cls.Avatar, mods, [className])} alt={alt} />;
+    return (
+        <img
+            src={src}
+            style={styles}
+            className={classNames(cls.Avatar, mods, [className])}
+            alt={alt}
+        />
+    );
 });

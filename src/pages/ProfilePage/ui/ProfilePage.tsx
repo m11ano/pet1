@@ -120,7 +120,14 @@ const ProfilePage = (props: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ProfilePage, {}, [className])}>
                 <ProfilePageHeader />
-                {validateErrors?.length && validateErrors.map((err) => <Text theme="error" text={t(validateErrorTranslates[err])} key={err} />)}
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            theme="error"
+                            text={t(validateErrorTranslates[err])}
+                            key={err}
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

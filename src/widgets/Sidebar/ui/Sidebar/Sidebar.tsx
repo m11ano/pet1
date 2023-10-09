@@ -24,7 +24,10 @@ export const Sidebar = memo((props: SidebarProps) => {
     };
 
     return (
-        <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+        <div
+            data-testid="sidebar"
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
             <Button
                 data-testid="sidebar-toogle"
                 onClick={onToggle}
@@ -37,12 +40,19 @@ export const Sidebar = memo((props: SidebarProps) => {
             </Button>
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (
-                    <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+                    <SidebarItem
+                        item={item}
+                        collapsed={collapsed}
+                        key={item.path}
+                    />
                 ))}
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
+                <LangSwitcher
+                    short={collapsed}
+                    className={cls.lang}
+                />
             </div>
         </div>
     );
